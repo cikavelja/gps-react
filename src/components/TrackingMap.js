@@ -83,28 +83,7 @@ const TrackingMap = () => {
 
   return (
     <>
-      <div className="d-flex flex-column h-100">
-        <main className="flex-shrink-0">
-          <div className="container">
-            <div className="mb-3">
-              <input
-                type="text"
-                id="accessTokenInput"
-                className="form-control"
-                placeholder="Enter Access Token"
-                value={accessToken}
-                onChange={(e) => setAccessToken(e.target.value)}
-              />
-            </div>
-            <button
-              className="btn btn-primary"
-              onClick={connectWithAccessToken}
-            >
-              Connect with Access Token
-            </button>
-          </div>
-        </main>
-      </div>
+
       {
         data?.length ? (
           <Map data={data} index={index} />
@@ -113,23 +92,13 @@ const TrackingMap = () => {
         )
       }
 
-      <div>
-        <textarea
-          rows="5"
-          cols="40"
-          value={jsonInput}
-          onChange={(e) => setJsonInput(e.target.value)}
-        />
-        <br />
-        <button onClick={handleRefreshMap}>Refresh Map</button>
-      </div>
       {
         data?.length ? (
           data.map(({ name }, idx) => (
             <button onClick={() => setIndex(idx)} key={idx}>{`Go to ${name}`}</button>
           ))
         ) : (
-          <p>No data available</p>
+          <p></p>
         )
       }
     </>
