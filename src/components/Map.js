@@ -39,6 +39,7 @@ export default function Map(props) {
               <br>
               </br>
               Speed: {coord.speed}
+              GPS: {[coord.latitude, coord.longitude]}
               </Popup>
             </Marker>
           ))}

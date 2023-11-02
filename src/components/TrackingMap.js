@@ -16,11 +16,12 @@ const TrackingMap = () => {
   const [message, setMessage] = useState("");
 
 
-  const handleRefreshMap = () => {
+  const handleRefreshMap = (index) => {
+    setIndex(index);
     refreshMap(jsonInput, setData, setIndex);
   };
   const connectWithAccessToken = () => {
-    debugger;
+    //debugger;
     const hubConnection = new signalR.HubConnectionBuilder()
       //.withUrl(`http://localhost:5157/gpshub?access_token=${auth.accessToken}`)
       .withUrl(`https://gps-api-7.azurewebsites.net/gpshub?access_token=${auth.accessToken}`)
@@ -32,12 +33,12 @@ const TrackingMap = () => {
 
 
       // Find the index of the item with the same name
-      let index = -1;
+      let selectedIndex = -1;
       if (data) {
-        index = data.findIndex(item => item.name.toLowerCase() === position.user.email);
-      } ;
+        selectedIndex = data.findIndex(item => item.name.toLowerCase() === position.user.email);
+      };
 
-      if (index !== -1) {
+      if (selectedIndex !== -1) {
         // If an item with the same name exists, add new latitude, longitude, and speed to it
         const newCoordinates = {
           latitude: position.latitude,
@@ -45,7 +46,7 @@ const TrackingMap = () => {
           speed: position.speed,
         };
 
-        data[index].coordinates.push(newCoordinates);
+        data[selectedIndex].coordinates.push(newCoordinates);
       } else {
         // If the item doesn't exist, create a new item
         const newEntry = {
@@ -58,7 +59,7 @@ const TrackingMap = () => {
             },
           ],
         };
-
+        //setIndex
         data.push(newEntry);
       }
 
@@ -82,33 +83,49 @@ const TrackingMap = () => {
   }, []);
 
   return (
-    <>
 
-      {
-        data?.length ? (
-          <Map data={data} index={index} />
-        ) : (
-          <p>No data available</p>
-        )
-      }
+      <div className="container-fluid">
+        <div className="row no-gutters justify-content-center align-items-center" >
+          <div className="col-6 bg-success">
+            <div className="container py-5 text-center">
+              <h1 className="display-5 fw-bold"></h1>
+              {
+                data?.length ? (
+                  <Map data={data} index={index} />
+                ) : (
+                  <p>No data available</p>
+                )
+              }
+                    <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div className="btn-group" >
 
-      {
-        data?.length ? (
-          data.map(({ name }, idx) => (
-            <button onClick={() => setIndex(idx)} key={idx}>{`Go to ${name}`}</button>
-          ))
-        ) : (
-          <p></p>
-        )
-      }
-    </>
+              {
+                data?.length ? (
+                  data.map(({ name }, idx) => (
+                    <button type="button" className="btn btn-secondary" onClick={() => setIndex(idx)} key={idx}>{`Go to ${name}`}</button>
+
+                    ))
+                ) : (
+                  <p>No data available</p>
+                )
+              }
+                    </div>
+                  </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
   );
 };
 
 export default TrackingMap;
 function refreshMap(jsonInput, setData, setIndex) {
   try {
-    debugger;
+    //debugger;
     const parsedData = JSON.parse(jsonInput);
     setData(parsedData);
     //setIndex(0);
