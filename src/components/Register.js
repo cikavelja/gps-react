@@ -57,13 +57,14 @@ const Register = () => {
         }
         try {
             const response = await axios.post(REGISTER_URL,
-                JSON.stringify({ user, pwd }),
+                JSON.stringify({query: `mutation Register {  register(request: { email: "${user}", userName: "${user}", password: "${pwd}" }) {    successful  }}`}),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 }
             );
             // TODO: remove console.logs before deployment
+            debugger;
             console.log(JSON.stringify(response?.data));
             //console.log(JSON.stringify(response))
             setSuccess(true);

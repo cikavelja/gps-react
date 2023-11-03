@@ -86,7 +86,7 @@ const TrackingMap = () => {
 
       <div className="container-fluid">
         <div className="row no-gutters justify-content-center align-items-center" >
-          <div className="col-6 bg-success">
+          <div className="col-8 bg-success">
             <div className="container py-5 text-center">
               <h1 className="display-5 fw-bold"></h1>
               {
