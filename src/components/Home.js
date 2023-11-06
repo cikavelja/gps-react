@@ -39,6 +39,7 @@ const Home = () => {
             <Clients />
             <Tracker />
             <Footer /> 
+            
             {/* <h1>Home</h1>
             <br />
             <p>You are logged in!</p>
