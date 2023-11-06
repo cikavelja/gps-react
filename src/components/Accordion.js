@@ -251,8 +251,8 @@ function Accordion({ groups, setGroups, onAddGroup, onUpdateGroup }) {
     const handleDeleteGroup = async (groupId) => {
         // Implement your logic to delete the user group
 
-        if(!window.confirm("Delete?"))
-        return;
+        if (!window.confirm("Delete?"))
+            return;
 
         const response = await axiosPrivate.post("",
             JSON.stringify({ "query": 'mutation{deleteGroup( groupId: "' + groupId + '"){  }}' }),
@@ -272,113 +272,114 @@ function Accordion({ groups, setGroups, onAddGroup, onUpdateGroup }) {
 
     return (
         <div className="accordion" id="accordionExample">
-            {groups.map((group, index) => (
+        {groups.map((group, index) => (
 
-                <div className="accordion-item" key={group.id}>
-                    <h2 className="accordion-header" id={`heading${index}`}>
-                        <div
-                            className={`accordion-button ${openAccordion === index ? '' : 'collapsed'}`}
-                            type="button"
-                            onClick={() => toggleAccordion(index)}
-                            aria-expanded={openAccordion === index}
-                        >
-                            <div className='row'>
-
-                                <div className="col-4  ">
-                                <label className="btn btn-outline-secondary" >{group.groupName}</label>
-                                </div>
-                                <div className="col-4  ">
-                                    <button onClick={() => handleUpdateGroupClick(group)} type="button" className="btn btn-outline-primary">Update</button>
-                                </div>
-                                <div className="col-4  ">
-                                    <button
-                                        className="btn btn-outline-danger"
-                                        onClick={() => handleDeleteGroup(group.id)}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-
-                            </div>
-                            
-                        </div>
-                    </h2>
+            <div className="accordion-item" key={group.id}>
+                <h2 className="accordion-header" id={`heading${index}`}>
                     <div
-                        id={`collapse${index}`}
-                        className={`accordion-collapse collapse ${openAccordion === index ? 'show' : ''}`}
-                        aria-labelledby={`heading${index}`}
+                        className={`accordion-button ${openAccordion === index ? '' : 'collapsed'}`}
+                        type="button"
+                        onClick={() => toggleAccordion(index)}
+                        aria-expanded={openAccordion === index}
                     >
-                        <div className="accordion-body">
-                            <div className="card">
-                                <div className="card-body">
-                                    <h2 className="card-title">Members</h2>
-                                    {group.userGroups.map((userGroup) => (
-                                        <div className="card" key={userGroup.id}>
-                                            <div className="card-body">
-                                                <div className="row " >
-                                                    <div className="col-2 "><h4 className="card-title">{userGroup.member.email}</h4></div>
-                                                    <div className="col-2 ">
-                                                        <div className="form-check form-switch">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="checkbox"
-                                                                id={`consentSwitch${userGroup.id}`}
-                                                                checked={userGroup.consent}
-                                                                onChange={(event) => handleConsentChange(group.id, userGroup.id, event)}
-                                                            />
-                                                            <label className="form-check-label" htmlFor={`consentSwitch${userGroup.member.email}`}>Consent</label>
-                                                        </div>
+                        <div className='row'>
+
+                            <div className="col-4  ">
+                                <label className="btn btn-outline-secondary" >{group.groupName}</label>
+                            </div>
+                            <div className="col-4  ">
+                                <button onClick={() => handleUpdateGroupClick(group)} type="button" className="btn btn-outline-primary">Update</button>
+                            </div>
+                            <div className="col-4  ">
+                                <button
+                                    className="btn btn-outline-danger"
+                                    onClick={() => handleDeleteGroup(group.id)}
+                                >
+                                    Delete
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </h2>
+                <div
+                    id={`collapse${index}`}
+                    className={`accordion-collapse collapse ${openAccordion === index ? 'show' : ''}`}
+                    aria-labelledby={`heading${index}`}
+                >
+                    <div className="accordion-body">
+                        <div className="card">
+                            <div className="card-body">
+                                <h2 className="card-title">Members</h2>
+                                {group.userGroups.map((userGroup) => (
+                                    <div className="card" key={userGroup.id}>
+                                        <div className="card-body">
+                                            <div className="row " >
+                                                <div className="col-2 "><h4 className="card-title">{userGroup.member.email}</h4></div>
+                                                <div className="col-2 ">
+                                                    <div className="form-check form-switch">
+                                                        <input
+                                                            className="form-check-input"
+                                                            type="checkbox"
+                                                            id={`consentSwitch${userGroup.id}`}
+                                                            checked={userGroup.consent}
+                                                            onChange={(event) => handleConsentChange(group.id, userGroup.id, event)}
+                                                        />
+                                                        <label className="form-check-label" htmlFor={`consentSwitch${userGroup.member.email}`}>Consent</label>
                                                     </div>
-                                                    <div className="col-2 ">
-                                                        <div className="form-check form-switch">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="checkbox"
-                                                                id={`blockedSwitch${userGroup.id}`}
-                                                                checked={userGroup.blocked}
-                                                                onChange={(event) => handleBlockedChange(group.id, userGroup.id, event)}
-                                                            />
-                                                            <label className="form-check-label" htmlFor={`blockedSwitch${userGroup.id}`}>Blocked</label>
-                                                        </div>
+                                                </div>
+                                                <div className="col-2 ">
+                                                    <div className="form-check form-switch">
+                                                        <input
+                                                            className="form-check-input"
+                                                            type="checkbox"
+                                                            id={`blockedSwitch${userGroup.id}`}
+                                                            checked={userGroup.blocked}
+                                                            onChange={(event) => handleBlockedChange(group.id, userGroup.id, event)}
+                                                        />
+                                                        <label className="form-check-label" htmlFor={`blockedSwitch${userGroup.id}`}>Blocked</label>
                                                     </div>
-                                                    <div className="col-6  float-right">
-                                                        <button
-                                                            className="btn btn-outline-danger"
-                                                            onClick={() => handleDelete(group.id, userGroup.id, userGroup.member.id)}
-                                                        >
-                                                            Delete
-                                                        </button>
-                                                    </div>
+                                                </div>
+                                                <div className="col-6  float-right">
+                                                    <button
+                                                        className="btn btn-outline-danger"
+                                                        onClick={() => handleDelete(group.id, userGroup.id, userGroup.member.id)}
+                                                    >
+                                                        Delete
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                    ))}
-                                    <button onClick={() => handleAddUserClick(group)} type="button" className="btn btn-outline-success">Add member</button>
+                                    </div>
+                                ))}
+                                <button onClick={() => handleAddUserClick(group)} type="button" className="btn btn-outline-success">Add member</button>
 
-                                </div>
                             </div>
-
-                            {/* <button onClick={() => handleUpdateGroupName(group.id)} type="button" className="btn btn-outline-primary">Update Name</button>
-                            <button onClick={() => handleDeleteGroup(group.id)} type="button" className="btn btn-outline-danger">Delete</button> */}
                         </div>
+
+                        {/* <button onClick={() => handleUpdateGroupName(group.id)} type="button" className="btn btn-outline-primary">Update Name</button>
+                <button onClick={() => handleDeleteGroup(group.id)} type="button" className="btn btn-outline-danger">Delete</button> */}
                     </div>
                 </div>
-            ))}
-            <AddUserPopup
-                isOpen={showAddUserPopup}
-                onClose={handleCloseAddUserPopup}
-                onAddUser={handleAddUser}
-            />
-            <button onClick={handleAddGroupClick} className="btn btn-success">Add Group</button>
+            </div>
+        ))}
+        <AddUserPopup
+            isOpen={showAddUserPopup}
+            onClose={handleCloseAddUserPopup}
+            onAddUser={handleAddUser}
+        />
+        <button onClick={handleAddGroupClick} className="btn btn-success">Add Group</button>
 
-            <AddGroupPopup
-                isOpen={showAddGroupPopup}
-                onClose={handleCloseAddGroupPopup}
-                onAddGroup={onAddGroup} // Implement the logic to add a new group
-                onUpdateGroup={onUpdateGroup} // Implement the logic to update an existing group
-                group={selectedGroup} // Pass the selected group for updates
-            />
-        </div>
+        <AddGroupPopup
+            isOpen={showAddGroupPopup}
+            onClose={handleCloseAddGroupPopup}
+            onAddGroup={onAddGroup} // Implement the logic to add a new group
+            onUpdateGroup={onUpdateGroup} // Implement the logic to update an existing group
+            group={selectedGroup} // Pass the selected group for updates
+        />
+    </div>
+
     );
 }
 

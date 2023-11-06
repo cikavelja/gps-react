@@ -1,9 +1,24 @@
-
 import { useNavigate, Link } from "react-router-dom";
-
+import useAuth from '../hooks/useAuth';
+import { useContext,useEffect } from 'react'; // Import useEffect
+import AuthContext from "../context/AuthProvider";
 
 
 const Navigation = () => {
+    const { setAuth, isAuthenticated } = useAuth();
+    const { auth } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const logout = async () => {
+        setAuth({});
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("user");
+        navigate('/');
+    }
+
+
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div className="container">
@@ -19,9 +34,20 @@ const Navigation = () => {
                         <li className="nav-item"><a className="nav-link" href="#about">About</a></li>
                         <li className="nav-item"><a className="nav-link" href="#team">Team</a></li>
                         <li className="nav-item"><Link to="/admin" className="nav-link">Admin</Link></li>
-                        <li className="nav-item"><Link to="/map" className="nav-link">Map</Link></li>
-                        <li className="nav-item"><Link to="/lounge" className="nav-link">Lounge</Link></li>
-                        <li className="nav-item"><Link to="/linkpage" className="nav-link">linkpage</Link></li>
+
+                        {auth?.user ? (
+                            <>
+                                <li className="nav-item"><Link to="/linkpage" className="nav-link">linkpage</Link></li>
+                                <li className="nav-item"><Link to="/map" className="nav-link">Map</Link></li>
+                                <li className="nav-item"><Link to="/lounge" className="nav-link">Lounge</Link></li>
+                                <li className="nav-item"><a onClick={logout} className="nav-link">Sign Out</a></li>
+                            </>
+                        ) : (
+                            <>
+                                <li className="nav-item"><Link to="/login" className="nav-link">Log In</Link></li>
+                                <li className="nav-item"><Link to="/register" className="nav-link">Sign In</Link></li>
+                            </>
+                        )}
                     </ul>
                 </div>
             </div>
@@ -29,4 +55,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation
+export default Navigation;

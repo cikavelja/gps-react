@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Circle, CircleMarker, Popup, Polyline, Polygon, Rectangle, useMapEvent, useMap, useMapEvents, Marker } from 'react-leaflet';
 import useAuth from "../hooks/useAuth";
 import Map from './Map';
 import * as signalR from "@microsoft/signalr";
+import { Link } from 'react-router-dom';
+
 
 import '../css/TrackingMap.css';
 
@@ -83,11 +84,49 @@ const TrackingMap = () => {
   }, []);
 
   return (
+    <section>
+      <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#"></a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarColor01">
+            <ul className="navbar-nav me-auto">
+            <li className="nav-item">
+                <Link to="/" className="nav-link">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/admin" className="nav-link">Admin</Link>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My targets</a>
+                <div class="dropdown-menu show" data-bs-popper="static">
+                {
+                    data?.length ? (
+                      data.map(({ name }, idx) => (
+                        <a class="dropdown-item" href="#" onClick={() => setIndex(idx)} key={idx}>{`Go to ${name}`}</a>
+                        ))
+                    ) : (
+                      <p>No users online</p>
+                    )
+                  }
 
-      <div className="container-fluid">
-        <div className="row no-gutters justify-content-center align-items-center" >
-          <div className="col-8 bg-success">
-            <div className="container py-5 text-center">
+                </div>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+
+      <div className='container mt-5'>
+
+        <div className="container-fluid">
+
+          <div className="row no-gutters justify-content-center align-items-center" >
+            <div className="col">
               <h1 className="display-5 fw-bold"></h1>
               {
                 data?.length ? (
@@ -96,26 +135,13 @@ const TrackingMap = () => {
                   <p>No data available</p>
                 )
               }
-                    <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div className="btn-group" >
 
-              {
-                data?.length ? (
-                  data.map(({ name }, idx) => (
-                    <button type="button" className="btn btn-secondary" onClick={() => setIndex(idx)} key={idx}>{`Go to ${name}`}</button>
-
-                    ))
-                ) : (
-                  <p>No data available</p>
-                )
-              }
-                    </div>
-                  </div>
 
             </div>
           </div>
         </div>
       </div>
+    </section>
 
 
 

@@ -12,7 +12,7 @@ import Footer from "./Footer";
 
 const Home = () => {
     //const { setAuth } = useContext(AuthContext);
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const { setAuth } = useAuth();
 
     const logout = async () => {
@@ -24,7 +24,7 @@ const Home = () => {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("user");
 
-        navigate('/linkpage');
+        //navigate('/linkpage');
     }
 
     return (
@@ -39,7 +39,7 @@ const Home = () => {
             <Clients />
             <Tracker />
             <Footer />
-            <h1>Home</h1>
+            {/* <h1>Home</h1>
             <br />
             <p>You are logged in!</p>
             <br />
@@ -52,7 +52,7 @@ const Home = () => {
             <Link to="/linkpage">Go to the link page</Link>
             <div className="flexGrow">
                 <button onClick={logout}>Sign Out</button>
-            </div>
+            </div> */}
         </section>
     )
 }

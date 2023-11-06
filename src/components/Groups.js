@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Accordion from './Accordion';
 
 
+
 const Groups = () => {
     const [groups, setGroups] = useState([]);
     const axiosPrivate = useAxiosPrivate();
@@ -51,7 +52,6 @@ const Groups = () => {
 
 
         <article>
-
             <h2>Groups List</h2>
             {groups?.length
                 ? (

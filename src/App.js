@@ -10,19 +10,20 @@ import Unauthorized from './components/Unauthorized';
 import Lounge from './components/Lounge';
 import LinkPage from './components/LinkPage';
 import RequireAuth from './components/RequireAuth';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import SignalR from './components/SignalR';
 
-const ROLES = {
-  'User': 2001,
-  'Editor': 1984,
-  'Admin': 5150
-}
+// Assuming you have a function to check if the user is authorized
+const isAuthorized = () => {
+  // Logic to determine if the user is authorized (e.g., check user roles or tokens)
+  // Return true if authorized, otherwise return false
+  return false;
+};
 
 function App() {
-
   return (
     <Routes>
+      <Route path="editor" element={<RequireAuth isAuthorized={isAuthorized}><Editor /></RequireAuth>} />
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route path="login" element={<Login />} />
@@ -30,27 +31,14 @@ function App() {
         <Route path="linkpage" element={<LinkPage />} />
         <Route path="signalr" element={<SignalR />} />
         <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path="/" element={<Home />} />
+        <Route index path="/" element={<Home />} />
         {/* we want to protect these routes */}
-
-
-        <Route element={<RequireAuth  />}>
-          <Route path="map" element={<TrackingMap />} />
-        </Route>
-
-        <Route element={<RequireAuth  />}>
+        <Route element={<RequireAuth isAuthorized={isAuthorized} />}>
+          <Route path="map"  element={<TrackingMap />} />
           <Route path="editor" element={<Editor />} />
-        </Route>
-
-
-        <Route element={<RequireAuth  />}>
           <Route path="admin" element={<Admin />} />
-        </Route>
-
-        <Route element={<RequireAuth  />}>
           <Route path="lounge" element={<Lounge />} />
         </Route>
-
         {/* catch all */}
         <Route path="*" element={<Missing />} />
       </Route>

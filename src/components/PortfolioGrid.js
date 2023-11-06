@@ -1,300 +1,242 @@
+import React from 'react';
 
-const PortfolioGrid = () => {
-    return (
-      <section className="page-section bg-light" id="portfolio">
-          <div className="container">
-              <div className="text-center">
-                  <h2 className="section-heading text-uppercase">Portfolio</h2>
-                  <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-              </div>
-              <div className="row">
-                  <div className="col-lg-4 col-sm-6 mb-4">
-                      <div className="portfolio-item">
-                          <a className="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                              <div className="portfolio-hover">
-                                  <div className="portfolio-hover-content"><i className="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img className="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
-                          </a>
-                          <div className="portfolio-caption">
-                              <div className="portfolio-caption-heading">Threads</div>
-                              <div className="portfolio-caption-subheading text-muted">Illustration</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="col-lg-4 col-sm-6 mb-4">
-                      <div className="portfolio-item">
-                          <a className="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                              <div className="portfolio-hover">
-                                  <div className="portfolio-hover-content"><i className="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img className="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
-                          </a>
-                          <div className="portfolio-caption">
-                              <div className="portfolio-caption-heading">Explore</div>
-                              <div className="portfolio-caption-subheading text-muted">Graphic Design</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="col-lg-4 col-sm-6 mb-4">
-                      <div className="portfolio-item">
-                          <a className="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                              <div className="portfolio-hover">
-                                  <div className="portfolio-hover-content"><i className="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img className="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
-                          </a>
-                          <div className="portfolio-caption">
-                              <div className="portfolio-caption-heading">Finish</div>
-                              <div className="portfolio-caption-subheading text-muted">Identity</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                      <div className="portfolio-item">
-                          <a className="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                              <div className="portfolio-hover">
-                                  <div className="portfolio-hover-content"><i className="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img className="img-fluid" src="assets/img/portfolio/4.jpg" alt="..." />
-                          </a>
-                          <div className="portfolio-caption">
-                              <div className="portfolio-caption-heading">Lines</div>
-                              <div className="portfolio-caption-subheading text-muted">Branding</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                      <div className="portfolio-item">
-                          <a className="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                              <div className="portfolio-hover">
-                                  <div className="portfolio-hover-content"><i className="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img className="img-fluid" src="assets/img/portfolio/5.jpg" alt="..." />
-                          </a>
-                          <div className="portfolio-caption">
-                              <div className="portfolio-caption-heading">Southwest</div>
-                              <div className="portfolio-caption-subheading text-muted">Website Design</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="col-lg-4 col-sm-6">
-                      <div className="portfolio-item">
-                          <a className="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                              <div className="portfolio-hover">
-                                  <div className="portfolio-hover-content"><i className="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img className="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
-                          </a>
-                          <div className="portfolio-caption">
-                              <div className="portfolio-caption-heading">Window</div>
-                              <div className="portfolio-caption-subheading text-muted">Photography</div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      <div className="portfolio-modal modal fade" id="portfolioModal1"  role="dialog" aria-hidden="true">
-          <div className="modal-dialog">
-              <div className="modal-content">
-                  <div className="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                  <div className="container">
-                      <div className="row justify-content-center">
-                          <div className="col-lg-8">
-                              <div className="modal-body">
-                                  <h2 className="text-uppercase">Project Name</h2>
-                                  <p className="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                  <img className="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
-                                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                  <ul className="list-inline">
-                                      <li>
-                                          <strong>Client:</strong>
-                                          Threads
-                                      </li>
-                                      <li>
-                                          <strong>Category:</strong>
-                                          Illustration
-                                      </li>
-                                  </ul>
-                                  <button className="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                      <i className="fas fa-xmark me-1"></i>
-                                      Close Project
-                                  </button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div className="portfolio-modal modal fade" id="portfolioModal2" tabIndex="-1" role="dialog" aria-hidden="true">
-          <div className="modal-dialog">
-              <div className="modal-content">
-                  <div className="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                  <div className="container">
-                      <div className="row justify-content-center">
-                          <div className="col-lg-8">
-                              <div className="modal-body">
-                                  <h2 className="text-uppercase">Project Name</h2>
-                                  <p className="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                  <img className="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..." />
-                                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                  <ul className="list-inline">
-                                      <li>
-                                          <strong>Client:</strong>
-                                          Explore
-                                      </li>
-                                      <li>
-                                          <strong>Category:</strong>
-                                          Graphic Design
-                                      </li>
-                                  </ul>
-                                  <button className="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                      <i className="fas fa-xmark me-1"></i>
-                                      Close Project
-                                  </button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div className="portfolio-modal modal fade" id="portfolioModal3" tabIndex="-1" role="dialog" aria-hidden="true">
-          <div className="modal-dialog">
-              <div className="modal-content">
-                  <div className="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                  <div className="container">
-                      <div className="row justify-content-center">
-                          <div className="col-lg-8">
-                              <div className="modal-body">
-                                  <h2 className="text-uppercase">Project Name</h2>
-                                  <p className="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                  <img className="img-fluid d-block mx-auto" src="assets/img/portfolio/3.jpg" alt="..." />
-                                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                  <ul className="list-inline">
-                                      <li>
-                                          <strong>Client:</strong>
-                                          Finish
-                                      </li>
-                                      <li>
-                                          <strong>Category:</strong>
-                                          Identity
-                                      </li>
-                                  </ul>
-                                  <button className="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                      <i className="fas fa-xmark me-1"></i>
-                                      Close Project
-                                  </button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div className="portfolio-modal modal fade" id="portfolioModal4" tabIndex="-1" role="dialog" aria-hidden="true">
-          <div className="modal-dialog">
-              <div className="modal-content">
-                  <div className="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                  <div className="container">
-                      <div className="row justify-content-center">
-                          <div className="col-lg-8">
-                              <div className="modal-body">
-                                  <h2 className="text-uppercase">Project Name</h2>
-                                  <p className="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                  <img className="img-fluid d-block mx-auto" src="assets/img/portfolio/4.jpg" alt="..." />
-                                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                  <ul className="list-inline">
-                                      <li>
-                                          <strong>Client:</strong>
-                                          Lines
-                                      </li>
-                                      <li>
-                                          <strong>Category:</strong>
-                                          Branding
-                                      </li>
-                                  </ul>
-                                  <button className="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                      <i className="fas fa-xmark me-1"></i>
-                                      Close Project
-                                  </button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div className="portfolio-modal modal fade" id="portfolioModal5" tabIndex="-1" role="dialog" aria-hidden="true">
-          <div className="modal-dialog">
-              <div className="modal-content">
-                  <div className="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                  <div className="container">
-                      <div className="row justify-content-center">
-                          <div className="col-lg-8">
-                              <div className="modal-body">
-                                  <h2 className="text-uppercase">Project Name</h2>
-                                  <p className="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                  <img className="img-fluid d-block mx-auto" src="assets/img/portfolio/5.jpg" alt="..." />
-                                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                  <ul className="list-inline">
-                                      <li>
-                                          <strong>Client:</strong>
-                                          Southwest
-                                      </li>
-                                      <li>
-                                          <strong>Category:</strong>
-                                          Website Design
-                                      </li>
-                                  </ul>
-                                  <button className="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                      <i className="fas fa-xmark me-1"></i>
-                                      Close Project
-                                  </button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div className="portfolio-modal modal fade" id="portfolioModal6" tabIndex="-1" role="dialog" aria-hidden="true">
-          <div className="modal-dialog">
-              <div className="modal-content">
-                  <div className="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                  <div className="container">
-                      <div className="row justify-content-center">
-                          <div className="col-lg-8">
-                              <div className="modal-body">
-                                  <h2 className="text-uppercase">Project Name</h2>
-                                  <p className="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                  <img className="img-fluid d-block mx-auto" src="../public/assets/img/portfolio/6.jpg" alt="..." />
-                                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                  <ul className="list-inline">
-                                      <li>
-                                          <strong>Client:</strong>
-                                          Window
-                                      </li>
-                                      <li>
-                                          <strong>Category:</strong>
-                                          Photography
-                                      </li>
-                                  </ul>
-                                  <button className="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                      <i className="fas fa-xmark me-1"></i>
-                                      Close Project
-                                  </button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      </section>
+const PortfolioGrid = ({ data }) => {
+  const { sectionHeading, sectionSubheading, items } = {
+    "sectionHeading": "Portfolio",
+    "sectionSubheading": "Lorem ipsum dolor sit amet consectetur.",
+    "items": [
+      {
+        "img": "assets/img/portfolio/1.jpg",
+        "captionHeading": "Threads",
+        "captionSubheading": "Illustration",
+        "modal": {
+          "projectName": "Name",
+          "description": "desc",
+          "details": "details",
+          "items": [
+            {
+              "name": "Client1",
+              "value": "Threads1"
+            },
+            {
+              "name": "Client11",
+              "value": "Threads11"
+            },
+            {
+              "name": "Client111",
+              "value": "Threads111"
+            }
+          ]
+        }
+      },
+      {
+        "img": "assets/img/portfolio/2.jpg",
+        "captionHeading": "Explore",
+        "captionSubheading": "Graphic Design",
+        "modal": {
+          "projectName": "Name",
+          "description": "desc",
+          "details": "details",
+          "items": [
+            {
+              "name": "Client2",
+              "value": "Threads2"
+            },
+            {
+              "name": "Client22",
+              "value": "Threads22"
+            },
+            {
+              "name": "Client222",
+              "value": "Threads222"
+            }
+          ]
+        }
+      },
+      {
+        "img": "assets/img/portfolio/3.jpg",
+        "captionHeading": "Finish",
+        "captionSubheading": "Identity",
+        "modal": {
+          "projectName": "Name",
+          "description": "desc",
+          "details": "details",
+          "items": [
+            {
+              "name": "Client3",
+              "value": "Threads3"
+            },
+            {
+              "name": "Client33",
+              "value": "Threads33"
+            },
+            {
+              "name": "Client333",
+              "value": "Threads333"
+            }
+          ]
+        }
+      },
+      {
+        "img": "assets/img/portfolio/4.jpg",
+        "captionHeading": "Lines",
+        "captionSubheading": "Branding",
+        "modal": {
+          "projectName": "Name",
+          "description": "desc",
+          "details": "details",
+          "items": [
+            {
+              "name": "Client4",
+              "value": "Threads4"
+            },
+            {
+              "name": "Client44",
+              "value": "Threads44"
+            },
+            {
+              "name": "Client444",
+              "value": "Threads444"
+            }
+          ]
+        }
+      },
+      {
+        "img": "assets/img/portfolio/5.jpg",
+        "captionHeading": "Southwest",
+        "captionSubheading": "Website Design",
+        "modal": {
+          "projectName": "Name",
+          "description": "desc",
+          "details": "details",
+          "items": [
+            {
+              "name": "Client5",
+              "value": "Threads5"
+            },
+            {
+              "name": "Client55",
+              "value": "Threads55"
+            },
+            {
+              "name": "Client555",
+              "value": "Threads555"
+            }
+          ]
+        }
+      },
+      {
+        "img": "assets/img/portfolio/6.jpg",
+        "captionHeading": "Window",
+        "captionSubheading": "Photography",
+        "modal": {
+          "projectName": "Name",
+          "description": "desc",
+          "details": "details",
+          "items": [
+            {
+              "name": "Client6",
+              "value": "Threads6"
+            },
+            {
+              "name": "Client6",
+              "value": "Threads6"
+            },
+            {
+              "name": "Client6",
+              "value": "Threads6"
+            }
+          ]
+        }
+      }
+    ]
+  };
 
-    )
-}
+  return (
+    <section className="page-section bg-light" id="portfolio">
+      <div className="container">
+        <div className="text-center">
+          <h2 className="section-heading text-uppercase">{sectionHeading}</h2>
+          <h3 className="section-subheading text-muted">{sectionSubheading}</h3>
+        </div>
+        <div className="row">
+          {items.map((item, index) => (
+            <div key={index} className="col-lg-4 col-sm-6 mb-4">
+              <div className="portfolio-item">
+                <a
+                  className="portfolio-link"
+                  data-bs-toggle="modal"
+                  href={`#portfolioModal${index + 1}`}
+                >
+                  <div className="portfolio-hover">
+                    <div className="portfolio-hover-content">
+                      <i className="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img className="img-fluid" src={item.img} alt="..." />
+                </a>
+                <div className="portfolio-caption">
+                  <div className="portfolio-caption-heading">{item.captionHeading}</div>
+                  <div className="portfolio-caption-subheading text-muted">
+                    {item.captionSubheading}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {items.map((item, index) => (
+        <div
+          key={index}
+          className="portfolio-modal modal fade"
+          id={`portfolioModal${index + 1}`}
+          tabIndex="-1"
+          role="dialog"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="close-modal" data-bs-dismiss="modal">
+                <img src="assets/img/close-icon.svg" alt="Close modal" />
+              </div>
+              <div className="container">
+                <div className="row justify-content-center">
+                  <div className="col-lg-8">
+                    <div className="modal-body">
+                      <h2 className="text-uppercase">{item.modal.projectName}</h2>
+                      <p className="item-intro text-muted">{item.modal.description}</p>
+                      <img
+                        className="img-fluid d-block mx-auto"
+                        src={item.img}
+                        alt="..."
+                      />
+                      <p>{item.modal.details}</p>
+                      <ul className="list-inline">
+                        {item.modal.items.map((modalItem, modalIndex) => (
+                          <li key={modalIndex}>
+                            <strong>{modalItem.name}:</strong> {modalItem.value}
+                          </li>
+                        ))}
+                      </ul>
+                      <button
+                        className="btn btn-primary btn-xl text-uppercase"
+                        data-bs-dismiss="modal"
+                        type="button"
+                      >
+                        <i className="fas fa-times me-1"></i>
+                        Close Project
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+};
 
-export default PortfolioGrid
+export default PortfolioGrid;
