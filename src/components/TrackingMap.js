@@ -109,7 +109,7 @@ const TrackingMap = () => {
                 {
                     data?.length ? (
                       data.map(({ name }, idx) => (
-                        <a className="dropdown-item" href="#" onClick={() => setIndex(idx)} key={idx}>{`Go to ${name}`}</a>
+                        <a className="dropdown-item"  onClick={() => setIndex(idx)} key={idx}>{`Go to ${name}`}</a>
                         ))
                     ) : (
                       <p>No users online</p>
