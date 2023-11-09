@@ -2,8 +2,9 @@ import { axiosPrivate } from "../api/axios";
 import { useEffect } from "react";
 // import useRefreshToken from "./useRefreshToken";
 import useAuth from "./useAuth";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 const useAxiosPrivate = () => {
@@ -23,16 +24,9 @@ const useAxiosPrivate = () => {
         const responseIntercept = axiosPrivate.interceptors.response.use(
             response => response,
             async (error) => {
-                
-                const prevRequest = error?.config;
-                debugger;
-                <ToastContainer pauseOnFocusLoss={false} />
 
-// Opt-out per toast
-toast('Hello', {
-  pauseOnFocusLoss: false
-})
-                toast.info(error.response.data.errors[0].message);
+                const prevRequest = error?.config;
+                toast.error(error.response.data.errors[0].message);
                 if (error?.response?.status === 403 && !prevRequest?.sent) {
                     prevRequest.sent = true;
                     //const newAccessToken = await refresh();
@@ -41,12 +35,7 @@ toast('Hello', {
                 }
                 //return Promise.reject(error);
                 return () => {
-                    <ToastContainer pauseOnFocusLoss={false} />
 
-                    // Opt-out per toast
-                    toast('Hello', {
-                      pauseOnFocusLoss: false
-                    });
                     Promise.reject(error);
                 }
             }
@@ -56,8 +45,8 @@ toast('Hello', {
             axiosPrivate.interceptors.request.eject(requestIntercept);
             axiosPrivate.interceptors.response.eject(responseIntercept);
         }
-    //}, [auth, refresh])
-}, [auth])
+        //}, [auth, refresh])
+    }, [auth])
 
     return axiosPrivate;
 }

@@ -3,6 +3,7 @@ import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import axios from '../api/axios';
+import { toast } from 'react-toastify';
 
 const LOGIN_URL = '';
 
@@ -51,15 +52,17 @@ const Login = () => {
             localStorage.setItem("user", user);
             navigate(from, { replace: true });
         } catch (err) {
-            if (!err?.response) {
-                setErrMsg('No Server Response');
-            } else if (err.response?.status === 400) {
-                setErrMsg('Missing Username or Password');
-            } else if (err.response?.status === 401) {
-                setErrMsg('Unauthorized');
-            } else {
-                setErrMsg('Login Failed');
-            }
+            toast.error(err.response.data.errors[0].message);
+            // if (!err?.response) {
+            //     setErrMsg('No Server Response');
+            // } else if (err.response?.status === 400) {
+                
+            //     setErrMsg('Missing Username or Password');
+            // } else if (err.response?.status === 401) {
+            //     setErrMsg('Unauthorized');
+            // } else {
+            //     setErrMsg('Login Failed');
+            // }
             errRef.current.focus();
         }
     }

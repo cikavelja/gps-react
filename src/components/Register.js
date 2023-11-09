@@ -3,7 +3,7 @@ import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navigation from "./Navigation";
 
@@ -175,7 +175,6 @@ const Register = () => {
                         </p>
                     </div>
                 )}
-                <ToastContainer />
             </div>
         </div>
     )

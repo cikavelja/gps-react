@@ -7,11 +7,12 @@ import icon from "./constants";
 function SetViewOnClick({ coords }) {
   const map = useMap();
   map.setView(coords, map.getZoom());
-
+  //console.log("SetViewOnClick:" + index);
   return null;
 }
 
 export default function Map(props) {
+  debugger;
   const { index, data } = props;
 
   return (

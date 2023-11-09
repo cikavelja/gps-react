@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 //import Accordion from './Accordion';
+import '../css/styles.css'; // Import the CSS file
 import Groups from "./Groups";
 
 const Admin = () => {
@@ -34,9 +35,6 @@ const Admin = () => {
             <br />
             <Groups />
             <br />
-            <div className="flexGrow">
-                <Link to="/">Home</Link>
-            </div>
         </section>
     )
 }

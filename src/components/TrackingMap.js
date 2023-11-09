@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 import Map from './Map';
 import * as signalR from "@microsoft/signalr";
 import { Link } from 'react-router-dom';
+import '../css/styles.css'; // Import the CSS file
 
 
 import '../css/TrackingMap.css';
@@ -65,6 +66,7 @@ const TrackingMap = () => {
       }
 
       console.log(data);
+      console.log(index);
       refreshMap(JSON.stringify(data), setData, setIndex);
     });
 
@@ -80,6 +82,7 @@ const TrackingMap = () => {
       });
   };
   useEffect(() => {
+    
     connectWithAccessToken();
   }, []);
 
@@ -100,13 +103,13 @@ const TrackingMap = () => {
                 <Link to="/admin" className="nav-link">Admin</Link>
               </li>
               
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My targets</a>
-                <div class="dropdown-menu show" data-bs-popper="static">
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My targets</a>
+                <div className="dropdown-menu show" data-bs-popper="static">
                 {
                     data?.length ? (
                       data.map(({ name }, idx) => (
-                        <a class="dropdown-item" href="#" onClick={() => setIndex(idx)} key={idx}>{`Go to ${name}`}</a>
+                        <a className="dropdown-item" href="#" onClick={() => setIndex(idx)} key={idx}>{`Go to ${name}`}</a>
                         ))
                     ) : (
                       <p>No users online</p>
